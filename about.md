@@ -24,3 +24,8 @@ I briefly considered writing this site in some fancy cutting-edge JavaScript fra
 - [Juxtopposed](https://codepen.io/Juxtopposed/pen/zYmoRKo) for inspiring the grainy card on the homepage
 - [Sebastian Lague](https://www.youtube.com/watch?v=X-iSQQgOd1A) for inspiring the slime mold on the homepage
 - [Keita Yamada](https://p5aholic.me/) for inspiring the layout of the homepage
+
+<br>
+<hr>
+
+My last name is pronounced "Tyler"
