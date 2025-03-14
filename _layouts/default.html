@@ -3,15 +3,26 @@
 
 <head>
   <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta name="description" content="Sebastian Theiler's blog">
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="preload" href="/assets/css/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   {% feed_meta %}
   {% seo %}
 </head>
 
 <body>
   {% include navigation.html %}
+  <br />
+  <br />
+  {% if page.title != "Sebastian Theiler" %}
+  <article class="page-content">
+    {{ content }}
+  </article>
+  {% else %}
   {{ content }}
+  {% endif %}
 </body>
 
 </html>

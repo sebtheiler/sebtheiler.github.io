@@ -1,0 +1,77 @@
+@import "variables.scss";
+
+#simCanvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(1px);
+  z-index: 0;
+}
+
+.card {
+  margin-top: 1em;
+  margin-left: 1em; // Desktop: not centered horizontally
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  height: 800px;
+  width: 600px;
+  position: relative;
+  opacity: 0.95;
+  background: linear-gradient(135deg, $cardBg, $cardBg2);
+  box-shadow: 4px 4px 4px rgba(black, 0.25);
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+  transition: all ease 0.3s;
+  filter: drop-shadow(0px 0px 0px rgb(173, 155, 255, 0));
+  z-index: 1;
+
+  >.content {
+    padding: 1em;
+    z-index: 5;
+    font-size: 24px;
+    height: 100%;
+
+    >.click-and-drag {
+      position: absolute;
+      bottom: 0;
+      right: 30px;
+    }
+  }
+}
+
+.filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: #000;
+  filter: url(#noiseFilter2);
+  opacity: 50%;
+  clip-path: url(#rounded-clip);
+  mix-blend-mode: hard-light;
+  transition: all ease 0.3s;
+}
+
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, $radialCenter, $radialEdge), linear-gradient(135deg, $cardBg, $cardBg2);
+  z-index: -2;
+  border-radius: 20px;
+  opacity: 30%;
+  transition: all ease 0.3s;
+}
+
+.shadow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  z-index: 1;
+  box-shadow: 0px 4px 80px 10px rgb(255, 222, 173, 0.4);
+  z-index: 1;
+  transition: all ease 0.3s;
+}

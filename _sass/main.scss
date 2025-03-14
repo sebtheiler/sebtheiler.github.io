@@ -1,3 +1,39 @@
-.current {
-  color: green;
+@import "generalElements.scss";
+@import "home.scss";
+@import "nav.scss";
+@import "article.scss";
+
+body {
+  font-family: "EB Garamond";
+  overflow-x: hidden;
+  margin: 0;
+  background: $bg;
+  font-size: 24px;
+}
+
+// For mobile
+@media (max-width: 768px) {
+  body {
+    font-size: 26px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  // center the card horizontally only on mobile
+  .card {
+    margin: 5% auto; // Center the card horizontally
+    width: 90%;
+    height: auto; // Adjust height to content
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >.content {
+      >.click-and-drag {
+        display: none;
+      }
+    }
+  }
 }
