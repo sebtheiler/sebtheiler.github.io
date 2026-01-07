@@ -1,7 +1,47 @@
 {{ define "main" }}
-    <div style="text-align: center; padding: 50px 0;">
-        <h1>Welcome to My Lab</h1>
-        <p>This is my custom landing page.</p>
-        <a href="/projects">Check out my projects</a>
+
+<canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+<div class="landing-overlay">
+  <div class="info-card">
+    <div class="info-card-filter"></div>
+
+    <div class="info-card-content">
+      <h1>Sebastian Theiler</h1>
+      <p>
+        Manhattan to St. Louis. Building systems for autonomous planning. Swarm
+        Robotics Captain.
+      </p>
+      <br />
+      <hr />
+      <ul>
+        <li>B.S. Electrical Engineering</li>
+        <li>Washington University in St. Louis</li>
+        <li>
+          <a target="_blank" href="https://washurobotics.com/">
+            Captain of the WashU Swarm Robotics team
+          </a>
+        </li>
+        <li><a target="_blank" href="TODO">Resume</a></li>
+        <li>
+          <a target="_blank" href="https://www.linkedin.com/in/sebtheiler">
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="https://github.com/sebtheiler/">GitHub</a>
+        </li>
+        <li>
+          <a target="_blank" href="mailto:s.k.theiler@wustl.edu">
+            s.k.theiler@wustl.edu
+          </a>
+        </li>
+      </ul>
+
+      <p class="click-and-drag"><em>Click and drag 🡒</em></p>
     </div>
+  </div>
+</div>
+
+<script src="/js/slime.js"></script>
 {{ end }}

@@ -1,8 +1,28 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    <ul>
-        {{ range .Pages }}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-        {{ end }}
-    </ul>
+<div class="blog-container">
+  <h1 class="page-title">{{ .Title }}</h1>
+  <hr />
+
+  <div class="post-stream">
+    {{ range .Pages }}
+    <article class="post-preview">
+      <header>
+        <h2 class="entry-title">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        <div class="entry-meta">
+          <span class="date">{{ .Date.Format "January 2, 2006" }}</span>
+          <span class="separator">•</span>
+          <span class="read-time">{{ .ReadingTime }} min read</span>
+        </div>
+      </header>
+
+      <div class="entry-summary">
+        <p>{{ .Summary }}</p>
+        <a class="read-more" href="{{ .Permalink }}">Read More →</a>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</div>
 {{ end }}

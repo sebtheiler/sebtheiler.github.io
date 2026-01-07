@@ -1,33 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!doctype html>
+<html lang="en">
+  {{ partial "head.html" . }}
+
+  <head>
     <title>{{ .Title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
-    
+
     <script>
-        (function() {
-            const savedTheme = localStorage.getItem("theme");
-            const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            
-            if (savedTheme === "dark" || (!savedTheme && systemDark)) {
-                document.documentElement.setAttribute("data-theme", "dark");
-            }
-        })();
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const systemDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
     </script>
-</head>
-<body>
-    <nav>
-        <a href="/">Home</a> | 
-        <a href="/blog">Blog</a> | 
+  </head>
+  <body>
+    <nav id="navbar" class="floating-nav">
+      <div class="nav-filter"></div>
+      <div class="nav-links">
+        <a href="/">Home</a>
         <a href="/projects">Projects</a>
-        
-        <button id="theme-toggle" style="float: right;">Toggle Theme</button>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+      </div>
+
+      <button id="theme-toggle" aria-label="Toggle Dark Mode">
+        <svg
+          class="icon light-icon"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" />
+        </svg>
+
+        <svg
+          class="icon dark-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" />
+        </svg>
+      </button>
+
+      <svg style="width: 0; height: 0; position: absolute">
+        <filter id="noiseFilter">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.6"
+            stitchTiles="stitch" />
+        </filter>
+      </svg>
     </nav>
-    
-    <main>
-        {{ block "main" . }}{{ end }}
+
+    <main style="{{ if .IsHome }}max-width: 100%; padding: 0 2rem;{{ end }}">
+      {{ block "main" . }}{{ end }}
     </main>
 
     <script src="/js/toggle.js"></script>
-</body>
+    <script src="/js/navbar.js"></script>
+  </body>
 </html>
