@@ -1,0 +1,28 @@
+:root {
+    /* Default Light Theme Variables */
+    --bg: #ffffff;
+    --text: #222222;
+    --link: #0056b3;
+    --border: #e0e0e0;
+}
+
+[data-theme="dark"] {
+    /* Dark Theme Overrides */
+    --bg: #1a1a1a;
+    --text: #f0f0f0;
+    --link: #58a6ff;
+    --border: #444444;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+a { color: var(--link); }
+nav { padding: 1rem; border-bottom: 1px solid var(--border); }
+main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
