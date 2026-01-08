@@ -12,7 +12,7 @@ This past summer, I was a research intern at the WiMNet lab at Columbia Universi
 
 For better or worse, I inhabit a corporeal form beyond this keyboard. I am on WashU's rowing team, which functions as a means to reset my brain every morning. It is admittedly a slightly strange sport, and it takes quite a lot of dedication to move a boat 2,000 meters in a respectable time. As a result, you will find me in bed by 8:30 p.m. most week days. I promise it's fun.
 
-If you find me interesting, consider connecting with me on [LinkedIn](https://www.linkedin.com/in/sebtheiler), sending me an [email](mailto:s.k.theiler@wustl.edu), or, if you're feeling particularly generous, [offering me a job or internship](TODO).
+If you find me interesting, consider connecting with me on [LinkedIn](https://www.linkedin.com/in/sebtheiler), sending me an [email](mailto:s.k.theiler@wustl.edu), or, if you're feeling particularly generous, [offering me a job or internship](https://drive.google.com/file/d/1eiybsaNd53bnGb-Dz4yHXSoF7OvauONi/view?usp=sharing).
 
 ## About This Site
 

@@ -20,16 +20,17 @@ function hexToRgb(hex) {
 }
 
 // Simulation parameters
-const scale = window.innerWidth > 2000 ? 8 : 4;
-const isMobile = window.innerWidth < 1000;
-const m = Math.ceil(window.innerWidth / scale);
-const n = Math.ceil(window.innerHeight / scale);
-const N = isMobile ? 2000 : 1000;
+const N = 2000;
 const dt = 1;
 const speed = 0.8;
 const turnSpeed = 0.3;
 const sensorAngle = (45 * Math.PI) / 180;
+
+// Data
+let scale, isMobile, m, n, imageData;
 let isDrawing = false;
+let agents = [];
+let trailMap = [];
 
 class Agent {
   constructor(x, y, angle) {
@@ -50,16 +51,42 @@ const bufferCanvas = document.createElement("canvas");
 bufferCanvas.width = m;
 bufferCanvas.height = n;
 const bufferCtx = bufferCanvas.getContext("2d");
-const imageData = bufferCtx.createImageData(m, n);
+
+function initDimensions() {
+  scale = window.innerWidth > 2000 ? 8 : 4;
+  isMobile = window.innerWidth < 1000;
+  m = Math.ceil(window.innerWidth / scale);
+  n = Math.ceil(window.innerHeight / scale);
+
+  // Resize actual DOM canvases
+  canvas.width = m * scale;
+  canvas.height = n * scale - 5;
+  bufferCanvas.width = m;
+  bufferCanvas.height = n;
+
+  imageData = bufferCtx.createImageData(m, n);
+
+  // Have to reset to avoid OOB error
+  // Makes it look a little funky while resizing but it's kinda cool
+  trailMap = new Array(m).fill(0).map(() => new Array(n).fill(0.0));
+
+  if (agents.length > 0) {
+    agents.forEach((agent) => {
+      agent.x = Math.min(agent.x, m - 0.1);
+      agent.y = Math.min(agent.y, n - 0.1);
+    });
+  }
+}
+
+initDimensions();
+window.addEventListener("resize", initDimensions);
 
 // Trail map
-let trailMap = [];
 for (let i = 0; i < m; i++) {
   trailMap[i] = new Array(n).fill(0.0);
 }
 
 // Initialize agents
-let agents = [];
 const cx = isMobile ? m / 2 : (5 * m) / 8;
 const cy = isMobile ? (3 * n) / 4 : n / 2;
 for (let i = 0; i < N; i++) {
